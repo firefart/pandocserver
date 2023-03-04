@@ -1,0 +1,10 @@
+LICENSE
+Makefile
+*.md
+.gitignore
+.github
+.git
+images/
+*.png
+*.jpg
+pandocserver

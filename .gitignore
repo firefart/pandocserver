@@ -1,0 +1,4 @@
+pandocserver
+*.exe
+build
+*.md
