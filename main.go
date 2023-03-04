@@ -22,10 +22,6 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-var (
-	debugOutput = false
-)
-
 type Logger interface {
 	Debug(args ...interface{})
 	Debugf(format string, args ...interface{})
@@ -94,6 +90,7 @@ func main() {
 
 	var host string
 	var wait time.Duration
+	var debugOutput bool
 	flag.StringVar(&host,
 		"host",
 		lookupEnvOrString(app.logger, "PANDOC_HOST", ":8080"),
