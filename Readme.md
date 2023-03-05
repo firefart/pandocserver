@@ -8,6 +8,7 @@ You can modify the template using the yml options at the top. If you have embedd
 
 To run the server it's easiest by using the provided docker image as it comes with everything installed.
 
+You should not pass untrusted user input to this webserver and always filter your input. The binary is run with the --sandbox option but there are still ways to escape from the normal workflow.
 ## Options
 
 ```text
