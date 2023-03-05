@@ -215,6 +215,7 @@ func (app *application) convert(ctx context.Context, inputFile []byte, resources
 		"--from=markdown+yaml_metadata_block+raw_html",
 		"--template=eisvogel",
 		"--listings", // syntax highlighting
+		"--sandbox",
 	}
 
 	// the pdf processor does not seem to respect the --resource-path
