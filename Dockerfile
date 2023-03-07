@@ -12,6 +12,9 @@ RUN mkdir -p /app \
     && adduser -D pandocserver \
     && chown -R pandocserver:pandocserver /app
 
+# install additional latex packages
+RUN tlmgr install pgf-pie
+
 USER pandocserver
 WORKDIR /app
 

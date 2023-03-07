@@ -167,6 +167,7 @@ func (app *application) routes() http.Handler {
 			Input           []byte            `json:"input" binding:"required"`
 			Resources       map[string][]byte `json:"resources"`
 			TableOfContents bool              `json:"toc"`
+			IncludeBefore   []byte            `json:"include_before"`
 		}
 
 		if err := c.ShouldBindJSON(&json); err != nil {
@@ -175,7 +176,7 @@ func (app *application) routes() http.Handler {
 			return
 		}
 
-		bin, err := app.convert(c.Request.Context(), json.Input, json.Resources, json.TableOfContents)
+		bin, err := app.convert(c.Request.Context(), json.Input, json.Resources, json.TableOfContents, json.IncludeBefore)
 		if err != nil {
 			app.logger.Errorf("[CONVERT]: %v", err)
 			c.AbortWithStatusJSON(http.StatusInternalServerError, errorJson("error converting markdown"))
@@ -188,7 +189,7 @@ func (app *application) routes() http.Handler {
 	return r
 }
 
-func (app *application) convert(ctx context.Context, inputFile []byte, resources map[string][]byte, toc bool) ([]byte, error) {
+func (app *application) convert(ctx context.Context, inputFile []byte, resources map[string][]byte, toc bool, includeBefore []byte) ([]byte, error) {
 	tmpdir := path.Join(os.TempDir(), fmt.Sprintf("pandocserver_%s", randStringRunes(10)))
 	if err := os.Mkdir(tmpdir, 0750); err != nil {
 		return nil, fmt.Errorf("could not create dir %q: %w", tmpdir, err)
@@ -241,6 +242,14 @@ func (app *application) convert(ctx context.Context, inputFile []byte, resources
 			}
 			app.logger.Debugf("created resource file %s", cleaned)
 		}
+	}
+
+	if len(includeBefore) > 0 {
+		beforeFileName := filepath.Join(tmpdir, fmt.Sprintf("%s.before", randStringRunes(10)))
+		if err := os.WriteFile(beforeFileName, includeBefore, 0600); err != nil {
+			return nil, fmt.Errorf("could not create include before file %s: %w", beforeFileName, err)
+		}
+		args = append(args, fmt.Sprintf("--include-before-body=%s", beforeFileName))
 	}
 
 	commandCtx, cancel := context.WithTimeout(ctx, app.commandTimeout)
