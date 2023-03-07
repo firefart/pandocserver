@@ -212,9 +212,7 @@ func (app *application) convert(ctx context.Context, inputFile []byte, resources
 		inputFileName,
 		fmt.Sprintf("--output=%s", outputFilename),
 		fmt.Sprintf("--data-dir=%s", app.pandocDataDir),
-		"--from=markdown+yaml_metadata_block+raw_html",
-		"--template=eisvogel",
-		"--listings", // syntax highlighting
+		"--from=markdown+yaml_metadata_block+raw_html+emoji",
 		"--sandbox",
 	}
 
