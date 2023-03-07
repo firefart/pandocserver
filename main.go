@@ -166,6 +166,7 @@ func (app *application) routes() http.Handler {
 		var json struct {
 			Input     []byte            `json:"input" binding:"required"`
 			Resources map[string][]byte `json:"resources"`
+			Template  string            `json:"template"`
 		}
 
 		if err := c.ShouldBindJSON(&json); err != nil {
@@ -174,7 +175,7 @@ func (app *application) routes() http.Handler {
 			return
 		}
 
-		bin, err := app.convert(c.Request.Context(), json.Input, json.Resources)
+		bin, err := app.convert(c.Request.Context(), json.Input, json.Resources, json.Template)
 		if err != nil {
 			app.logger.Errorf("[CONVERT]: %v", err)
 			c.AbortWithStatusJSON(http.StatusInternalServerError, errorJson("error converting markdown"))
@@ -187,7 +188,7 @@ func (app *application) routes() http.Handler {
 	return r
 }
 
-func (app *application) convert(ctx context.Context, inputFile []byte, resources map[string][]byte) ([]byte, error) {
+func (app *application) convert(ctx context.Context, inputFile []byte, resources map[string][]byte, template string) ([]byte, error) {
 	tmpdir := path.Join(os.TempDir(), fmt.Sprintf("pandocserver_%s", randStringRunes(10)))
 	if err := os.Mkdir(tmpdir, 0750); err != nil {
 		return nil, fmt.Errorf("could not create dir %q: %w", tmpdir, err)
@@ -234,6 +235,10 @@ func (app *application) convert(ctx context.Context, inputFile []byte, resources
 			}
 			app.logger.Debugf("created resource file %s", cleaned)
 		}
+	}
+
+	if template != "" {
+		args = append(args, fmt.Sprintf("--template=%s", template))
 	}
 
 	commandCtx, cancel := context.WithTimeout(ctx, app.commandTimeout)
