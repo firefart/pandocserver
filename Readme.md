@@ -59,12 +59,11 @@ To convert a document send a POST request to the `/convert` endpoint. The reques
   "resources": {
     "background.pdf": "base64 encoded file content",
     "test.jpg": "base64 encoded file content"
-  },
-  "toc": true
+  }
 }
 ```
 
-The `resources` object is optional and can be omitted if no resources are needed. The `toc` parameter specifies if the generated pdf should include a table of contents.
+The `resources` object is optional and can be omitted if no resources are needed.
 
 The returned response is also a JSON object with two possible outcomes. If the status code is not 200 there was an error. In this case the detailed error is shown on the terminal and a generic error message is sent back to the client.
 
@@ -85,6 +84,19 @@ Default Response when status is 200:
 ```
 
 If the status code is 200 you will get a base64 encoded pdf file in the `content` object. Just base64decode the content and save it as a pdf.
+
+You can add more commands using the yml section of the input document [https://pandoc.org/MANUAL.html#general-writer-options-1](https://pandoc.org/MANUAL.html#general-writer-options-1).
+
+For example to include a table of contents and load the pgf-pie library you can add the following to your yml
+
+```yml
+toc: true
+toc-depth: 3
+toc-own-page: true
+header-includes: |
+  \usepackage{tikz}
+  \usepackage{pgf-pie}
+```
 
 ## Example
 
