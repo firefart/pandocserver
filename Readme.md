@@ -2,13 +2,14 @@
 
 this is a simple webserver to interact with pandoc and generate PDFs from markdown.
 
-It uses the eisvogel template to all conversions so take a look at their yml options here [https://github.com/Wandmalfarbe/pandoc-latex-template](https://github.com/Wandmalfarbe/pandoc-latex-template).
+It includes the eisvogel template so take a look at their yml options here if you want to use it [https://github.com/Wandmalfarbe/pandoc-latex-template](https://github.com/Wandmalfarbe/pandoc-latex-template). You can modify the template using the yml options at the top.
 
-You can modify the template using the yml options at the top. If you have embedded resources like images and backgrounds in your markdown file you must also supply them with the correct path.
+If you have embedded resources like images and backgrounds in your markdown file you must also supply them with the correct path.
 
 To run the server it's easiest by using the provided docker image as it comes with everything installed.
 
 You should not pass untrusted user input to this webserver and always filter your input. The binary is run with the --sandbox option but there are still ways to escape from the normal workflow.
+
 ## Options
 
 ```text
