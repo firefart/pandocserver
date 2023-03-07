@@ -60,14 +60,11 @@ To convert a document send a POST request to the `/convert` endpoint. The reques
     "background.pdf": "base64 encoded file content",
     "test.jpg": "base64 encoded file content"
   },
-  "toc": true,
-  "include_before": "base64 encoded file content"
+  "toc": true
 }
 ```
 
 The `resources` object is optional and can be omitted if no resources are needed. The `toc` parameter specifies if the generated pdf should include a table of contents.
-
-You can use the `include_before` to add a file that is included before the `\begin{document}` section. This can be used to add additional packages.
 
 The returned response is also a JSON object with two possible outcomes. If the status code is not 200 there was an error. In this case the detailed error is shown on the terminal and a generic error message is sent back to the client.
 
