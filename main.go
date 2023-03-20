@@ -127,6 +127,14 @@ func main() {
 		app.logger.Debug("DEBUG mode enabled")
 	}
 
+	app.logger.Info("Starting pandocserver with the following parameters:")
+	app.logger.Infof("host: %s", host)
+	app.logger.Infof("debug: %t", debugOutput)
+	app.logger.Infof("graceful timeout: %s", wait)
+	app.logger.Infof("command timeout: %s", app.commandTimeout)
+	app.logger.Infof("pandoc path: %s", app.pandocPath)
+	app.logger.Infof("pandoc data dir: %s", app.pandocDataDir)
+
 	srv := &http.Server{
 		Addr:    host,
 		Handler: app.routes(),
