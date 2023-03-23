@@ -12,9 +12,6 @@ RUN mkdir -p /app \
     && adduser -D pandocserver \
     && chown -R pandocserver:pandocserver /app
 
-# temp fix for https://github.com/pandoc/dockerfiles/issues/196
-RUN tlmgr option repository ftp://tug.org/historic/systems/texlive/2022/tlnet-final
-
 # install additional latex packages
 RUN tlmgr install pgf-pie
 
