@@ -20,6 +20,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
+
+	_ "go.uber.org/automaxprocs"
 )
 
 type Logger interface {
