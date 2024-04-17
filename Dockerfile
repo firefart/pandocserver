@@ -1,25 +1,25 @@
-FROM golang:latest AS build-env
+FROM golang:alpine AS build-env
 WORKDIR /src
 ENV CGO_ENABLED=0
 COPY go.* /src/
 RUN go mod download
-COPY *.go .
-RUN go build -a -o pandocserver -ldflags="-s -w" -trimpath
+COPY . .
+RUN go build -a -o app -ldflags="-s -w" -trimpath
 
 FROM pandoc/extra:latest
 
 RUN mkdir -p /app \
-    && adduser -D pandocserver \
-    && chown -R pandocserver:pandocserver /app
+    && adduser -D user \
+    && chown -R user:user /app
 
 # install additional latex packages
 RUN tlmgr install pgf-pie pgfplots
 
-USER pandocserver
+USER user
 WORKDIR /app
 
-COPY --from=build-env /src/pandocserver .
+COPY --from=build-env /src/app .
 
 EXPOSE 8080
 
-ENTRYPOINT [ "./pandocserver" ]
+ENTRYPOINT [ "./app" ]

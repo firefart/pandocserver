@@ -8,3 +8,9 @@ images/
 *.png
 *.jpg
 pandocserver
+*.json
+*.secret
+*.env
+.idea/
+.devcontainer/
+tmp/

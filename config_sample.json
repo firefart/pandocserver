@@ -1,0 +1,55 @@
+{
+  "server": {
+    "listen": "127.0.0.1:8000",
+    "listen_pprof": "127.0.0.1:1234"
+  },
+  "pandoc_path": "/usr/local/bin/pandoc",
+  "pandoc_data_dir": "/.pandoc",
+  "command_timeout": "1m",
+  "cloudflare": false,
+  "timeout": "5s",
+  "notifications": {
+    "secret_key_header": "SECRET",
+    "telegram": {
+      "api_token": "",
+      "chat_ids": [
+        1,
+        2
+      ]
+    },
+    "discord": {
+      "bot_token": "",
+      "oauth_token": "",
+      "channel_ids": [
+        "1",
+        "2"
+      ]
+    },
+    "email": {
+      "sender": "test@test.com",
+      "server": "smtp.server.com",
+      "port": 25,
+      "username": "user",
+      "password": "pass",
+      "recipients": [
+        "test@test.com",
+        "a@a.com"
+      ]
+    },
+    "sendgrid": {
+      "api_key": "",
+      "sender_address": "test@test.com",
+      "sender_name": "Test",
+      "recipients": [
+        "test@test.com",
+        "a@a.com"
+      ]
+    },
+    "msteams": {
+      "webhooks": [
+        "url1",
+        "url2"
+      ]
+    }
+  }
+}

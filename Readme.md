@@ -38,7 +38,7 @@ It's also advised the run the image with the `--init` flag as there are subproce
 docker pull golang:latest
 docker pull pandoc/extra:latest
 docker build --tag pandocserver:dev .
-docker run --init --rm -p 8000:8000 pandocserver:dev -host 0.0.0.0:8000
+docker run -v "$(pwd):/volume" --init --rm -p 8000:8000 pandocserver:dev -config /volume/config.json
 ```
 
 Docker compose setup
