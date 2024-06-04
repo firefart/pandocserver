@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"flag"
-	"fmt"
 	"log/slog"
 	"net/http"
 	"os"
@@ -55,10 +54,6 @@ func run(ctx context.Context, logger *slog.Logger, configFilename string, debug 
 	app := &application{
 		logger: logger,
 		debug:  debug,
-	}
-
-	if configFilename == "" {
-		return fmt.Errorf("please provide a config file")
 	}
 
 	configuration, err := config.GetConfig(configFilename)

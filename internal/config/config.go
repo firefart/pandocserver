@@ -98,8 +98,10 @@ func GetConfig(f string) (Configuration, error) {
 		return Configuration{}, err
 	}
 
-	if err := k.Load(file.Provider(f), json.Parser()); err != nil {
-		return Configuration{}, err
+	if f != "" {
+		if err := k.Load(file.Provider(f), json.Parser()); err != nil {
+			return Configuration{}, err
+		}
 	}
 
 	var config Configuration

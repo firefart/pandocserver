@@ -8,7 +8,7 @@
 		"ghcr.io/devcontainers-contrib/features/go-task:1": {}
 	},
 	"postCreateCommand": {
-		"install air": "go install github.com/cosmtrek/air@latest",
+		"install air": "go install github.com/air-verse/air@latest",
 		"install required modules": "go mod download"
 	},
 	"forwardPorts": [
