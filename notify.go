@@ -75,7 +75,7 @@ func setupNotifications(configuration config.Configuration, logger *slog.Logger)
 		services = append(services, sendGridService)
 	}
 
-	if configuration.Notifications.MSTeams.Webhooks != nil && len(configuration.Notifications.MSTeams.Webhooks) > 0 {
+	if len(configuration.Notifications.MSTeams.Webhooks) > 0 {
 		logger.Info("Notifications: using msteams")
 		msteamsService := msteams.New()
 		msteamsService.AddReceivers(configuration.Notifications.MSTeams.Webhooks...)
