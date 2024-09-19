@@ -52,6 +52,7 @@ func setupNotifications(configuration config.Configuration, logger *slog.Logger)
 		logger.Info("Notifications: using email")
 		mailHost := net.JoinHostPort(configuration.Notifications.Email.Server, strconv.Itoa(configuration.Notifications.Email.Port))
 		mailService := mail.New(configuration.Notifications.Email.Sender, mailHost)
+		mailService.BodyFormat(mail.PlainText)
 		if configuration.Notifications.Email.Username != "" && configuration.Notifications.Email.Password != "" {
 			mailService.AuthenticateSMTP(
 				"",
