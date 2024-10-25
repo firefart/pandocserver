@@ -1,6 +1,7 @@
 module github.com/firefart/pandocserver
 
 go 1.22
+toolchain go1.22.8
 
 require (
 	github.com/knadh/koanf/parsers/json v0.1.0
@@ -11,7 +12,7 @@ require (
 	github.com/labstack/echo/v4 v4.12.0
 	github.com/lmittmann/tint v1.0.5
 	github.com/mattn/go-isatty v0.0.20
-	github.com/nikoksr/notify v1.0.0
+	github.com/nikoksr/notify v1.0.1
 	go.uber.org/automaxprocs v1.6.0
 )
 
