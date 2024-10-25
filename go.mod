@@ -1,7 +1,8 @@
 module github.com/firefart/pandocserver
 
-go 1.22
-toolchain go1.22.8
+go 1.22.7
+
+toolchain go1.23.2
 
 require (
 	github.com/knadh/koanf/parsers/json v0.1.0
