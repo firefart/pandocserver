@@ -103,8 +103,9 @@ func run(ctx context.Context, logger *slog.Logger, configFilename string, debug 
 		Addr: app.config.Server.PprofListen,
 	}
 	go func() {
-		metricsMux := http.NewServeMux()
-		metricsMux.Handle("/debug/pprof/", http.DefaultServeMux)
+		pprofMux := http.NewServeMux()
+		pprofMux.Handle("/debug/pprof/", http.DefaultServeMux)
+		pprofSrv.Handler = pprofMux
 		if err := pprofSrv.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
 			app.logger.Error("error on pprof listenandserve", slog.String("err", err.Error()))
 			// emit signal to kill server
