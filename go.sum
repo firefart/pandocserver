@@ -50,8 +50,8 @@ github.com/mitchellh/copystructure v1.2.0 h1:vpKXTN4ewci03Vljg/q9QvCGUDttBOGBIa1
 github.com/mitchellh/copystructure v1.2.0/go.mod h1:qLl+cE2AmVv+CoeAwDPye/v+N2HKCj9FbZEVFJRxO9s=
 github.com/mitchellh/reflectwalk v1.0.2 h1:G2LzWKi524PWgd3mLHV8Y5k7s6XUvT0Gef6zxSIeXaQ=
 github.com/mitchellh/reflectwalk v1.0.2/go.mod h1:mSTlrgnPZtwu0c4WaC2kGObEpuNDbx0jmZXqmk4esnw=
-github.com/nikoksr/notify v1.1.1 h1:4LtYhqhKiTiCOInqa4FjBAIpa08l+8rXADbNanEtXdM=
-github.com/nikoksr/notify v1.1.1/go.mod h1:Lm++G8L7Q658wXD2DdxGyrtvgsV5el/QN4livsV/RPM=
+github.com/nikoksr/notify v1.3.0 h1:UxzfxzAYGQD9a5JYLBTVx0lFMxeHCke3rPCkfWdPgLs=
+github.com/nikoksr/notify v1.3.0/go.mod h1:Xor2hMmkvrCfkCKvXGbcrESez4brac2zQjhd6U2BbeM=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/prashantv/gostub v1.1.0 h1:BTyx3RfQjRHnUWaGF9oQos79AlQ5k8WNktv7VGvVH4g=

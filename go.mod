@@ -11,7 +11,7 @@ require (
 	github.com/labstack/echo/v4 v4.13.3
 	github.com/lmittmann/tint v1.0.6
 	github.com/mattn/go-isatty v0.0.20
-	github.com/nikoksr/notify v1.1.1
+	github.com/nikoksr/notify v1.3.0
 	go.uber.org/automaxprocs v1.6.0
 )
 
