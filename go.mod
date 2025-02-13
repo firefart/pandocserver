@@ -1,6 +1,6 @@
 module github.com/firefart/pandocserver
 
-go 1.23
+go 1.24
 
 require (
 	github.com/knadh/koanf/parsers/json v0.1.0
