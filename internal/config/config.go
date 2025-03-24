@@ -92,8 +92,7 @@ func GetConfig(f string) (Configuration, error) {
 	}
 
 	if err := k.Load(env.Provider("PANDOC_", ".", func(s string) string {
-		return strings.Replace(strings.ToLower(
-			strings.TrimPrefix(s, "PANDOC_")), "_", ".", -1)
+		return strings.ReplaceAll(strings.ToLower(strings.TrimPrefix(s, "PANDOC_")), "_", ".")
 	}), nil); err != nil {
 		return Configuration{}, err
 	}
