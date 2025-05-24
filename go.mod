@@ -17,7 +17,7 @@ require (
 
 require (
 	github.com/atc0005/go-teams-notify/v2 v2.13.0 // indirect
-	github.com/bwmarrin/discordgo v0.28.1 // indirect
+	github.com/bwmarrin/discordgo v0.29.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
 	github.com/fsnotify/fsnotify v1.9.0 // indirect
