@@ -35,7 +35,7 @@ type ConfigNotification struct {
 	Telegram        ConfigNotificationTelegram `koanf:"telegram"`
 	Discord         ConfigNotificationDiscord  `koanf:"discord"`
 	Email           ConfigNotificationEmail    `koanf:"email"`
-	SendGrid        ConfigNotificationSendGrid `koanf:"sendgrid"`
+	Mailgun         ConfigNotificationMailgun  `koanf:"mailgun"`
 	MSTeams         ConfigNotificationMSTeams  `koanf:"msteams"`
 }
 
@@ -58,10 +58,10 @@ type ConfigNotificationEmail struct {
 	Recipients []string `koanf:"recipients"`
 }
 
-type ConfigNotificationSendGrid struct {
+type ConfigNotificationMailgun struct {
 	APIKey        string   `koanf:"api_key"`
 	SenderAddress string   `koanf:"sender_address"`
-	SenderName    string   `koanf:"sender_name"`
+	Domain        string   `koanf:"domain"`
 	Recipients    []string `koanf:"recipients"`
 }
 

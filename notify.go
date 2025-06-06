@@ -11,8 +11,8 @@ import (
 	"github.com/nikoksr/notify"
 	"github.com/nikoksr/notify/service/discord"
 	"github.com/nikoksr/notify/service/mail"
+	"github.com/nikoksr/notify/service/mailgun"
 	"github.com/nikoksr/notify/service/msteams"
-	"github.com/nikoksr/notify/service/sendgrid"
 	"github.com/nikoksr/notify/service/telegram"
 )
 
@@ -65,15 +65,16 @@ func setupNotifications(configuration config.Configuration, logger *slog.Logger)
 		services = append(services, mailService)
 	}
 
-	if configuration.Notifications.SendGrid.APIKey != "" {
-		logger.Info("Notifications: using sendgrid")
-		sendGridService := sendgrid.New(
-			configuration.Notifications.SendGrid.APIKey,
-			configuration.Notifications.SendGrid.SenderAddress,
-			configuration.Notifications.SendGrid.SenderName,
+	if configuration.Notifications.Mailgun.APIKey != "" {
+		logger.Info("Notifications: using mailgun")
+		mailgunService := mailgun.New(
+			configuration.Notifications.Mailgun.Domain,
+			configuration.Notifications.Mailgun.APIKey,
+			configuration.Notifications.Mailgun.SenderAddress,
+			mailgun.WithEurope(),
 		)
-		sendGridService.AddReceivers(configuration.Notifications.SendGrid.Recipients...)
-		services = append(services, sendGridService)
+		mailgunService.AddReceivers(configuration.Notifications.Mailgun.Recipients...)
+		services = append(services, mailgunService)
 	}
 
 	if len(configuration.Notifications.MSTeams.Webhooks) > 0 {

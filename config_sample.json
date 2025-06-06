@@ -36,10 +36,10 @@
         "a@a.com"
       ]
     },
-    "sendgrid": {
+    "mailgun": {
       "api_key": "",
       "sender_address": "test@test.com",
-      "sender_name": "Test",
+      "domain": "test.com",
       "recipients": [
         "test@test.com",
         "a@a.com"
