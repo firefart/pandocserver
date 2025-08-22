@@ -16,8 +16,6 @@ import (
 	"github.com/nikoksr/notify"
 
 	_ "net/http/pprof"
-
-	_ "go.uber.org/automaxprocs"
 )
 
 var secretKeyHeaderName = http.CanonicalHeaderKey("X-Secret-Key-Header")
@@ -114,9 +112,7 @@ func run(ctx context.Context, logger *slog.Logger, configFilename string, debug 
 	}()
 
 	var wg sync.WaitGroup
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
+	wg.Go(func() {
 		// wait for a signal
 		<-ctx.Done()
 		app.logger.Info("received shutdown signal")
@@ -129,7 +125,7 @@ func run(ctx context.Context, logger *slog.Logger, configFilename string, debug 
 		if err := pprofSrv.Shutdown(shutdownCtx); err != nil {
 			app.logger.Error("error on pprofsrv shutdown", slog.String("err", err.Error()))
 		}
-	}()
+	})
 	wg.Wait()
 	return nil
 }

@@ -5,7 +5,7 @@
 	"image": "mcr.microsoft.com/devcontainers/go",
 	"features": {
 		"ghcr.io/guiyomh/features/golangci-lint:0": {},
-		"ghcr.io/devcontainers-contrib/features/go-task:1": {}
+		"ghcr.io/devcontainers-extra/features/go-task:1": {}
 	},
 	"postCreateCommand": {
 		"install air": "go install github.com/air-verse/air@latest",
