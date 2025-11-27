@@ -50,6 +50,10 @@ pandocserver:
   init: true
 ```
 
+## Health Check
+
+To check if the server is healthy send a GET request to the `/health` endpoint.
+
 ## Requests
 
 To convert a document send a POST request to the `/convert` endpoint. The request needs to be JSON with the appropiate Content-Type header and the following structure:
