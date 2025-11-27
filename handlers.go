@@ -7,6 +7,10 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
+func (app *application) handleHealth(c echo.Context) error {
+	return c.String(http.StatusOK, "Healthy")
+}
+
 func (app *application) handleTestPanic(c echo.Context) error {
 	// no checks in debug mode
 	if app.debug {
