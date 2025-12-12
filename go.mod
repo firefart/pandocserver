@@ -8,16 +8,16 @@ require (
 	github.com/knadh/koanf/providers/file v1.2.0
 	github.com/knadh/koanf/providers/structs v1.0.0
 	github.com/knadh/koanf/v2 v2.3.0
-	github.com/labstack/echo/v4 v4.13.4
+	github.com/labstack/echo/v4 v4.14.0
 	github.com/lmittmann/tint v1.1.2
 	github.com/mattn/go-isatty v0.0.20
-	github.com/nikoksr/notify v1.3.0
+	github.com/nikoksr/notify v1.4.0
 )
 
 require (
 	github.com/atc0005/go-teams-notify/v2 v2.14.0 // indirect
 	github.com/bwmarrin/discordgo v0.29.0 // indirect
-	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/fatih/structs v1.1.0 // indirect
 	github.com/fsnotify/fsnotify v1.9.0 // indirect
 	github.com/go-chi/chi/v5 v5.2.3 // indirect
@@ -35,7 +35,7 @@ require (
 	github.com/mitchellh/reflectwalk v1.0.2 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
-	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/stretchr/objx v0.5.3 // indirect
 	github.com/stretchr/testify v1.11.1 // indirect
 	github.com/technoweenie/multipartstreamer v1.0.1 // indirect
