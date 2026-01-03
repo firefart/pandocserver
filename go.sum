@@ -50,8 +50,8 @@ github.com/labstack/gommon v0.4.2 h1:F8qTUNXgG1+6WQmqoUWnz8WiEU60mXVVw0P4ht1WRA0
 github.com/labstack/gommon v0.4.2/go.mod h1:QlUFxVM+SNXhDL/Z7YhocGIBYOiwB0mXm1+1bAPHPyU=
 github.com/lmittmann/tint v1.1.2 h1:2CQzrL6rslrsyjqLDwD11bZ5OpLBPU+g3G/r5LSfS8w=
 github.com/lmittmann/tint v1.1.2/go.mod h1:HIS3gSy7qNwGCj+5oRjAutErFBl4BzdQP6cJZ0NfMwE=
-github.com/mailgun/errors v0.4.0 h1:6LFBvod6VIW83CMIOT9sYNp28TCX0NejFPP4dSX++i8=
-github.com/mailgun/errors v0.4.0/go.mod h1:xGBaaKdEdQT0/FhwvoXv4oBaqqmVZz9P1XEnvD/onc0=
+github.com/mailgun/errors v0.5.0 h1:pLQo8uhAdORsjN69mGixSr0pGs46z/BW/FQXd8HG1VM=
+github.com/mailgun/errors v0.5.0/go.mod h1:+2nrgY77E0vDkG4ErehpcpbSkMLkseJzKbrva89WeSs=
 github.com/mailgun/mailgun-go/v5 v5.9.1 h1:L6ELVbO5rpzs9bo+7mrH63Eh6sI7kzZePcvx1c7Ig2o=
 github.com/mailgun/mailgun-go/v5 v5.9.1/go.mod h1:qNTXXuJi9/myqpDLI8Mbn54WCXdto1kEHm6I2/WWYQQ=
 github.com/mattn/go-colorable v0.1.14 h1:9A9LHSqF/7dyVVX6g0U9cwm9pG3kP9gSzcuIPHPsaIE=
