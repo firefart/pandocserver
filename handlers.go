@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v5"
 )
 
-func (app *application) handleHealth(c echo.Context) error {
+func (app *application) handleHealth(c *echo.Context) error {
 	return c.String(http.StatusOK, "Healthy")
 }
 
-func (app *application) handleTestPanic(c echo.Context) error {
+func (app *application) handleTestPanic(c *echo.Context) error {
 	// no checks in debug mode
 	if app.debug {
 		panic("test")
@@ -29,7 +29,7 @@ func (app *application) handleTestPanic(c echo.Context) error {
 	return c.Render(http.StatusOK, "index.html", nil)
 }
 
-func (app *application) handleTestNotification(c echo.Context) error {
+func (app *application) handleTestNotification(c *echo.Context) error {
 	// no checks in debug mode
 	if app.debug {
 		return fmt.Errorf("test")

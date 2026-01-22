@@ -7,8 +7,8 @@ import (
 	"log/slog"
 	"net/http"
 
-	"github.com/labstack/echo/v4"
-	"github.com/labstack/echo/v4/middleware"
+	"github.com/labstack/echo/v5"
+	"github.com/labstack/echo/v5/middleware"
 )
 
 type echoJsonError struct {
@@ -31,8 +31,6 @@ func newEchoJsonError(err error, code int, message string) echoJsonError {
 
 func (app *application) newServer(ctx context.Context) http.Handler {
 	e := echo.New()
-	e.HideBanner = true
-	e.Debug = app.debug
 	e.HTTPErrorHandler = app.customHTTPErrorHandler
 
 	if app.config.Cloudflare {
@@ -48,9 +46,11 @@ func (app *application) newServer(ctx context.Context) http.Handler {
 	return e
 }
 
-func (app *application) customHTTPErrorHandler(err error, c echo.Context) {
-	if c.Response().Committed {
-		return
+func (app *application) customHTTPErrorHandler(c *echo.Context, err error) {
+	if resp, uErr := echo.UnwrapResponse(c.Response()); uErr == nil {
+		if resp.Committed {
+			return // response has been already sent to the client by handler or some middleware
+		}
 	}
 
 	type jsonErrorResponse struct {

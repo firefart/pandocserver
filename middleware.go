@@ -2,20 +2,14 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"log/slog"
 
-	"github.com/labstack/echo/v4"
-	"github.com/labstack/echo/v4/middleware"
+	"github.com/labstack/echo/v5"
+	"github.com/labstack/echo/v5/middleware"
 )
 
 func (app *application) middlewareRecover() echo.MiddlewareFunc {
-	return middleware.RecoverWithConfig(middleware.RecoverConfig{
-		LogErrorFunc: func(c echo.Context, err error, stack []byte) error {
-			// send the error to the default error handler
-			return fmt.Errorf("PANIC! %v - %s", err, string(stack))
-		},
-	})
+	return middleware.Recover()
 }
 
 func (app *application) middlewareRequestLogger(ctx context.Context) echo.MiddlewareFunc {
@@ -28,9 +22,8 @@ func (app *application) middlewareRequestLogger(ctx context.Context) echo.Middle
 		LogMethod:        true,
 		LogContentLength: true,
 		LogResponseSize:  true,
-		LogError:         true,
 		HandleError:      true, // forwards error to the global error handler, so it can decide appropriate status code
-		LogValuesFunc: func(c echo.Context, v middleware.RequestLoggerValues) error {
+		LogValuesFunc: func(c *echo.Context, v middleware.RequestLoggerValues) error {
 			logLevel := slog.LevelInfo
 			errString := ""
 			// only set error on real errors

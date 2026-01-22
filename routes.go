@@ -4,14 +4,14 @@ import (
 	"log/slog"
 	"net/http"
 
-	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v5"
 )
 
 func (app *application) addRoutes(e *echo.Echo) {
 	e.GET("/health", app.handleHealth)
 	e.GET("/test_panic", app.handleTestPanic)
 	e.GET("/test_notifications", app.handleTestNotification)
-	e.POST("/convert", func(c echo.Context) error {
+	e.POST("/convert", func(c *echo.Context) error {
 		type jsonData struct {
 			Input     []byte            `json:"input"`
 			Resources map[string][]byte `json:"resources"`
