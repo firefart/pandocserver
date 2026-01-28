@@ -42,7 +42,8 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          # platforms: linux/amd64,linux/arm/v7,linux/arm64/v8,linux/386,linux/ppc64le
+          platforms: linux/amd64, linux/arm64
           tags: |
             firefart/pandocserver:latest
+            firefart/pandocserver:${{ github.sha }}
             ghcr.io/firefart/pandocserver:latest
