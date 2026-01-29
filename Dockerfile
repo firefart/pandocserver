@@ -6,7 +6,7 @@ RUN go mod download
 COPY . .
 RUN go build -a -o app -ldflags="-s -w" -trimpath
 
-FROM pandoc/extra:latest
+FROM pandoc/extra:latest-debian
 
 RUN mkdir -p /app \
     && adduser -D user \
