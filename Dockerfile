@@ -1,4 +1,4 @@
-FROM golang:alpine AS build-env
+FROM golang:trixie AS build-env
 WORKDIR /src
 ENV CGO_ENABLED=0
 COPY go.* /src/
@@ -9,7 +9,7 @@ RUN go build -a -o app -ldflags="-s -w" -trimpath
 FROM pandoc/extra:latest-debian
 
 RUN mkdir -p /app \
-    && adduser -D user \
+    && useradd -Mr user \
     && chown -R user:user /app
 
 # install additional latex packages
