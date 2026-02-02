@@ -48,8 +48,8 @@ github.com/labstack/echo/v5 v5.0.1 h1:60L7x1KMWRIJuaFqvnEHH322g+YnsMWq5Rzaeo6lcP
 github.com/labstack/echo/v5 v5.0.1/go.mod h1:SyvlSdObGjRXeQfCCXW/sybkZdOOQZBmpKF0bvALaeo=
 github.com/lmittmann/tint v1.1.2 h1:2CQzrL6rslrsyjqLDwD11bZ5OpLBPU+g3G/r5LSfS8w=
 github.com/lmittmann/tint v1.1.2/go.mod h1:HIS3gSy7qNwGCj+5oRjAutErFBl4BzdQP6cJZ0NfMwE=
-github.com/mailgun/mailgun-go/v5 v5.11.0 h1:5Ih/BIsbEoLzZAMtdoD2PgkpXapjyxTvSOBLpgvxa3k=
-github.com/mailgun/mailgun-go/v5 v5.11.0/go.mod h1:OxE3eAlj4xhdDoLJop8Dz1xDN9jzFP1ewunc+xApkwk=
+github.com/mailgun/mailgun-go/v5 v5.12.0 h1:jzgD9++03KSofLPf0AZ7WVUt7+lMygUoubn3xqASNBw=
+github.com/mailgun/mailgun-go/v5 v5.12.0/go.mod h1:OxE3eAlj4xhdDoLJop8Dz1xDN9jzFP1ewunc+xApkwk=
 github.com/mattn/go-isatty v0.0.20 h1:xfD0iDuEKnDkl03q4limB+vH+GxLEtL/jb4xVJSWWEY=
 github.com/mattn/go-isatty v0.0.20/go.mod h1:W+V8PltTTMOvKvAeJH7IuucS94S2C6jfK/D7dTCTo3Y=
 github.com/mitchellh/copystructure v1.2.0 h1:vpKXTN4ewci03Vljg/q9QvCGUDttBOGBIa15WveJJGw=
