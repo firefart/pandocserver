@@ -61,7 +61,6 @@ func (app *application) customHTTPErrorHandler(c *echo.Context, err error) {
 	msg := "error occured - please see log"
 	var echoError *echo.HTTPError
 	var jsonError *echoJsonError
-	var sc echo.HTTPStatusCoder
 	switch {
 	case errors.As(err, &echoError):
 		code = echoError.Code
@@ -69,10 +68,6 @@ func (app *application) customHTTPErrorHandler(c *echo.Context, err error) {
 	case errors.As(err, &jsonError):
 		code = jsonError.code
 		msg = jsonError.userMessage
-	case errors.As(err, &sc):
-		if tmp := sc.StatusCode(); tmp != 0 {
-			code = tmp
-		}
 	}
 
 	// send an asynchronous notification (but ignore 404 and stuff)
