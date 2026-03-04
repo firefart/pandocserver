@@ -13,7 +13,8 @@ RUN mkdir -p /app \
     && chown -R user:user /app
 
 # install additional latex packages
-RUN tlmgr update --self && \
+RUN update-tlmgr-latest.sh --update && \
+    tlmgr update --self && \
     tlmgr install pgf-pie pgfplots
 
 USER user
