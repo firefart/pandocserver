@@ -91,16 +91,24 @@ func GetConfig(f string) (Configuration, error) {
 		return Configuration{}, err
 	}
 
-	if err := k.Load(env.Provider("PANDOC_", ".", func(s string) string {
-		return strings.ReplaceAll(strings.ToLower(strings.TrimPrefix(s, "PANDOC_")), "_", ".")
-	}), nil); err != nil {
-		return Configuration{}, err
-	}
-
 	if f != "" {
 		if err := k.Load(file.Provider(f), json.Parser()); err != nil {
 			return Configuration{}, err
 		}
+	}
+
+	if err := k.Load(env.Provider("PANDOC_", ".", func(s string) string {
+		// hack so we can use double underscores in environment variables
+		// we first replace all underscores with dots, and two dots represent
+		// a former double underscore, so make this a normal underscore again
+		// this allows for camel case environment variables
+		s = strings.TrimPrefix(s, "PANDOC_")
+		s = strings.ToLower(s)
+		s = strings.ReplaceAll(s, "_", ".")
+		s = strings.ReplaceAll(s, "..", "_")
+		return s
+	}), nil); err != nil {
+		return Configuration{}, err
 	}
 
 	var config Configuration
