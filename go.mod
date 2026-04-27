@@ -10,7 +10,7 @@ require (
 	github.com/knadh/koanf/v2 v2.3.4
 	github.com/labstack/echo/v5 v5.1.0
 	github.com/lmittmann/tint v1.1.3
-	github.com/mattn/go-isatty v0.0.21
+	github.com/mattn/go-isatty v0.0.22
 	github.com/nikoksr/notify v1.5.0
 )
 
