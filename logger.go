@@ -48,7 +48,7 @@ func newLogger(debugMode, jsonOutput bool) *slog.Logger {
 			AddSource:   debugMode,
 			ReplaceAttr: replaceFunc,
 		}
-		handler = tint.NewHandler(w, textOptions)
+		handler = tint.NewTextHandler(w, textOptions)
 	}
 	return slog.New(handler)
 }
