@@ -33,7 +33,7 @@ require (
 	github.com/stretchr/testify v1.12.1 // indirect
 	github.com/technoweenie/multipartstreamer v1.0.1 // indirect
 	go.yaml.in/yaml/v3 v3.0.5 // indirect
-	golang.org/x/crypto v0.56.0 // indirect
+	golang.org/x/crypto v0.57.0 // indirect
 	golang.org/x/sync v0.23.0 // indirect
 	golang.org/x/sys v0.48.0 // indirect
 	golang.org/x/time v0.16.0 // indirect
