@@ -29,7 +29,7 @@ require (
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/reflectwalk v1.0.2 // indirect
 	github.com/oapi-codegen/runtime v1.7.0 // indirect
-	github.com/stretchr/objx v0.5.3 // indirect
+	github.com/stretchr/objx v0.7.0 // indirect
 	github.com/stretchr/testify v1.12.1 // indirect
 	github.com/technoweenie/multipartstreamer v1.0.1 // indirect
 	go.yaml.in/yaml/v3 v3.0.5 // indirect
